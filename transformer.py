@@ -59,7 +59,13 @@ class ImageTransformer(kfserving.KFModel):
         return payload
 
     def postprocess(self, inputs: List) -> List:
-        return inputs
+        pred = inputs["outputs"][0][0]
+        result = ''
+        if pred < 0.5:
+            result = "Cat"
+        else:
+            result = "Dog"
+        return result
 
 if __name__ == "__main__":
     transformer = ImageTransformer(args.model_name, predictor_host=args.predictor_host)
