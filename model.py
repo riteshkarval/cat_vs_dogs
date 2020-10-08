@@ -88,7 +88,7 @@ else:
 model.save(export_path + 'weights.h5')
 tf.keras.backend.set_learning_phase(0)  # Ignore dropout at inference
 
-if '1.14' in tf.__version__:
+if '1.1' in tf.__version__:
     with tf.keras.backend.get_session() as sess:
         tf.saved_model.simple_save(
             sess,
