@@ -63,8 +63,8 @@ opt = SGD(lr=0.001, momentum=0.9)
 model.compile(optimizer=opt, loss='binary_crossentropy', metrics=['accuracy'])
 
 history = model.fit_generator(train_it, steps_per_epoch=len(train_it), epochs=epochs, verbose=1)
-log_metrics('accuracy', history.history['acc'][-1])
-log_metrics('loss', history.history['loss'][-1])
+log_metrics('accuracy', float(history.history['acc'][-1]))
+log_metrics('loss', float(history.history['loss'][-1]))
 
 export_path = MODEL_DIR
 version = 0
