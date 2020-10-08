@@ -12,6 +12,7 @@ from tensorflow.keras.models import Model
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.layers import Flatten
 from tensorflow.keras.optimizers import SGD
+import requests
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--epochs", dest = 'epochs', type = int, default = 10, help="no. of epochs")
@@ -19,7 +20,7 @@ args = parser.parse_args()
 epochs = args.epochs
 
 DATA_DIR = "/opt/dkube/input/"
-MODEL_DIR = "opt/dkube/output/"
+MODEL_DIR = "/opt/dkube/output/"
 EXTRACT_PATH = "/tmp/data/"
 ZIP_FILE = DATA_DIR + "data.zip"
 img_shape = (298,298)
